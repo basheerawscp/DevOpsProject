@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4285F4;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .note {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+    <script>
+        function login() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            if (username === "admin" && password === "password123") {
+                localStorage.setItem("loggedIn", "true");
+                localStorage.setItem("username", username);
+                window.location.replace("dashboard.html");
+            } else {
+                alert("Invalid credentials");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button onclick="login()">Login</button>
+        <p class="note">Username: admin | Password: password123</p>
+    </div>
+</body>
+</html>
